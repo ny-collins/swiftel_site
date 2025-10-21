@@ -1,9 +1,9 @@
 ---
-import Layout from './Layout.astro';
+import BaseLayout from './BaseLayout.js';
 const { frontmatter } = Astro.props;
 const title = frontmatter.title.split(' | ')[0]; 
 ---
-<Layout title={frontmatter.title}>
+<BaseLayout title={frontmatter.title}>
   <article class="py-16 lg:py-24">
     <div class="container mx-auto px-6">
       <div class="max-w-3xl mx-auto mb-4">
@@ -16,4 +16,4 @@ const title = frontmatter.title.split(' | ')[0];
       </div>
     </div>
   </article>
-</Layout>
+</BaseLayout>

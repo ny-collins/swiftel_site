@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.js';
 import ContactForm from '../components/ContactForm.svelte';
 
 const socialLinks = [
@@ -9,7 +9,7 @@ const socialLinks = [
   { name: "WhatsApp", href: "https://wa.me/254111250055" }
 ];
 ---
-<Layout 
+<BaseLayout
   title="Contact Us | Swiftel Fibre"
   description="Get in touch with Swiftel Fibre. Call us, send us an email, or fill out the contact form. We're here to help you get connected."
 >
@@ -89,4 +89,4 @@ const socialLinks = [
       </div>
     </div>
   </section>
-</Layout>
+</BaseLayout>

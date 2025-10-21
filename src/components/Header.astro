@@ -1,43 +1,6 @@
 ---
-import ThemeToggle from './ThemeToggle.svelte';
-import MobileMenu from './MobileMenu.svelte';
-
-// UPDATED: Nav links are now consistent
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Learn", href: "/learn" },
-  { name: "Contact", href: "/contact" },
-];
+// This is now just a wrapper for the Svelte component
+import HeaderComponent from './HeaderComponent.svelte';
 ---
-<header class="bg-card/80 backdrop-blur-sm sticky top-0 z-50 border-b border-DEFAULT">
-    <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
-        <div>
-            <a href="/" class="block text-DEFAULT">
-                <img src="/logos/logo-with-text.svg" alt="Swiftel Fibre Logo" class="h-24 w-auto">
-            </a>
-        </div>
-        
-        <div class="hidden md:flex items-center gap-6">
-          <div class="flex items-center gap-6">
-            {navLinks.map(link => (
-                <a href={link.href} class="text-muted hover:text-primary transition-colors font-medium">
-                    {link.name}
-                </a>
-            ))}
-          </div>
-          
-          <div class="flex items-center gap-2">
-            <ThemeToggle client:load />
-            <a href="/contact" class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-lg transition-colors">
-                Get Connected
-            </a>
-          </div>
-        </div>
 
-        <div class="md:hidden flex items-center gap-2">
-          <ThemeToggle client:load />
-          <MobileMenu client:load />
-        </div>
-    </nav>
-</header>
+<HeaderComponent client:load />

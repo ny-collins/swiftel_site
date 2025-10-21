@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.js';
 import ArticleCard from '../components/ArticleCard.astro';
 
 const articles = [
@@ -15,7 +15,7 @@ const otherArticles = articles.filter(a => !a.featured);
 const pageTitle = "Learn | Swiftel Fibre";
 const pageDescription = "Learn all about internet connectivity. From in-depth guides on fibre technology to practical tips on how to boost your Wi-Fi signal.";
 ---
-<Layout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription}>
   <section class="grid-background py-16 lg:py-24">
     <div class="container mx-auto px-6 text-center">
       <h1 class="text-4xl lg:text-5xl font-extrabold text-DEFAULT">Learning Center</h1>
@@ -54,4 +54,4 @@ const pageDescription = "Learn all about internet connectivity. From in-depth gu
       </div>
     </div>
   </section>
-</Layout>
+</BaseLayout>

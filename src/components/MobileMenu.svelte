@@ -1,58 +1,111 @@
-<script>
-  import { onMount, onDestroy } from 'svelte';
-  
-  let isOpen = false;
+<script lang="ts">
+    import { createEventDispatcher } from 'svelte';
+    export let isOpen = false;
 
-  function toggleMenu() {
-    isOpen = !isOpen;
-  }
+    const dispatch = createEventDispatcher();
 
-  onMount(() => {
-    const unsubscribe = () => {
-      isOpen = false;
-    };
-    window.addEventListener('astro:page-load', unsubscribe);
-    onDestroy(() => window.removeEventListener('astro:page-load', unsubscribe));
-  });
+    function close() {
+        dispatch('close');
+    }
 
-  $: if (typeof document !== 'undefined') {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  }
-
-  // UPDATED: Nav links are now consistent
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Learn", href: "/learn" },
-    { name: "Contact", href: "/contact" },
-  ];
+    function handleLinkClick() {
+        close();
+    }
 </script>
 
-<div class="md:hidden">
-  <button on:click={toggleMenu} class="z-50 relative p-2 text-DEFAULT" aria-label="Open menu">
-    {#if isOpen}
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-      </svg>
-    {:else}
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-      </svg>
-    {/if}
-  </button>
+{#if isOpen}
+    <!-- Backdrop -->
+    <div
+            class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fade-in"
+            on:click={close}
+            on:keydown={(e) => e.key === 'Escape' && close()}
+            role="button"
+            tabindex="0"
+    ></div>
 
-  {#if isOpen}
-    <div class="fixed inset-0 bg-DEFAULT z-40 flex flex-col items-center justify-center space-y-8">
-      
-      {#each navLinks as link}
-        <a href={link.href} class="text-3xl font-bold text-DEFAULT hover:text-primary transition-colors">
-          {link.name}
-        </a>
-      {/each}
-      
-      <a href="/contact" class="text-2xl font-bold bg-accent text-neutral-900 py-3 px-8 rounded-lg transition-colors">
-        Get Connected
-      </a>
+    <!-- Menu -->
+    <div class="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-card shadow-2xl z-50 animate-slide-in-right">
+        <div class="flex flex-col h-full">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-6 border-b border-DEFAULT">
+                <span class="text-xl font-bold gradient-text">Menu</span>
+                <button
+                        on:click={close}
+                        class="p-2 rounded-lg hover:bg-bg transition-colors"
+                        aria-label="Close menu"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="flex-1 overflow-y-auto p-6">
+                <div class="space-y-2">
+                    <a
+                            href="/"
+                            on:click={handleLinkClick}
+                            class="block px-4 py-3 rounded-lg hover:bg-bg transition-colors font-medium animate-fade-in-up stagger-1"
+                    >
+                        🏠 Home
+                    </a>
+                    <a
+                            href="/#packages"
+                            on:click={handleLinkClick}
+                            class="block px-4 py-3 rounded-lg hover:bg-bg transition-colors font-medium animate-fade-in-up stagger-2"
+                    >
+                        📦 Packages
+                    </a>
+                    <a
+                            href="/about"
+                            on:click={handleLinkClick}
+                            class="block px-4 py-3 rounded-lg hover:bg-bg transition-colors font-medium animate-fade-in-up stagger-3"
+                    >
+                        ℹ️ About Us
+                    </a>
+                    <a
+                            href="/learn"
+                            on:click={handleLinkClick}
+                            class="block px-4 py-3 rounded-lg hover:bg-bg transition-colors font-medium animate-fade-in-up stagger-4"
+                    >
+                        📚 Learn
+                    </a>
+                    <a
+                            href="/#contact"
+                            on:click={handleLinkClick}
+                            class="block px-4 py-3 rounded-lg hover:bg-bg transition-colors font-medium animate-fade-in-up stagger-5"
+                    >
+                        ✉️ Contact
+                    </a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-8 animate-fade-in-up stagger-6">
+                    <a
+                            href="/#packages"
+                            on:click={handleLinkClick}
+                            class="btn-glow block w-full py-3 px-6 bg-primary text-white rounded-lg font-semibold text-center hover:bg-primary-dark transition-all"
+                    >
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="mt-8 p-4 bg-bg rounded-lg animate-fade-in-up stagger-6">
+                    <p class="text-sm font-semibold mb-3">Contact Us</p>
+                    <div class="space-y-2 text-sm text-muted">
+                        <a href="tel:08001234567" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <span>📞</span>
+                            <span>0800 123 4567</span>
+                        </a>
+                        <a href="mailto:hello@swiftel.com" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <span>✉️</span>
+                            <span>hello@swiftel.com</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </div>
-  {/if}
-</div>
+{/if}
