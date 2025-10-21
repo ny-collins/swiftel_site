@@ -1,0 +1,55 @@
+---
+interface Props {
+    animation?: 'fadeInUp' | 'fadeIn' | 'slideInLeft' | 'slideInRight' | 'scaleIn';
+    delay?: number;
+    class?: string;
+}
+
+const {
+    animation = 'fadeInUp',
+    delay = 0,
+    class: className = ''
+} = Astro.props;
+---
+
+<div
+        class={`scroll-reveal ${className}`}
+        data-animation={animation}
+        style={delay > 0 ? `animation-delay: ${delay}s` : ''}
+>
+    <slot />
+</div>
+
+<script>
+    function initScrollReveal() {
+        const elements = document.querySelectorAll('.scroll-reveal');
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animation') || 'fadeInUp';
+                        entry.target.classList.add(`animate-${animation}`);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
+
+        elements.forEach((el) => observer.observe(el));
+    }
+
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+    } else {
+        initScrollReveal();
+    }
+
+    // Re-initialize on navigation (for Astro view transitions)
+    document.addEventListener('astro:page-load', initScrollReveal);
+</script>
