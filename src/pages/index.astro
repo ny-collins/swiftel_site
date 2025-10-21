@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PackagesSection from '../components/PackagesSection.svelte';
-import AboutSection from '../components/AboutSection.astro';
+import WhySwiftel from '../components/WhySwiftel.astro'; // UPDATED: Import new component
+
+// UPDATED: Added SEO description
+const pageTitle = "Swiftel Fibre | High-Speed Internet";
+const pageDescription = "Swiftel Fibre offers the fastest, most reliable fibre internet packages for your home and business. Empowering the internet generation.";
 
 const homePackages = [
   { name: "Home Basic", speed: "8", price: "1,500", description: "Perfect for light use, keeping you connected for all the essentials.", features: ["Ideal for 1-2 devices", "Smooth casual browsing and social media", "Reliable for email and online articles", "Standard Definition (SD) video streaming"] },
@@ -19,48 +23,46 @@ const businessPackages = [
   { name: "Business Enterprise", speed: "63", price: "19,000", description: "Ultimate fibre power for large offices and mission-critical operations.", features: ["Uncompromised performance for 20+ users", "Handles heavy server traffic and enterprise applications", "Static IP address included", "Custom SLA and dedicated account manager"] },
 ];
 ---
-
-<<Layout 
-  title="Swiftel Fibre | High-Speed Internet"
-  description="Swiftel Fibre offers the fastest, most reliable fibre internet packages for your home and business. Empowering the internet generation."
->
-  <section class="grid-background container mx-auto px-6 py-16 lg:py-20 flex justify-center">
-    <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
-      
-      <div class="text-center lg:text-left">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-DEFAULT leading-tight">
-          Experience Uninterrupted<br />
-          <span class="text-primary">Fibre Speed.</span>
-        </h1>
-        <p class="mt-6 text-lg text-muted max-w-lg mx-auto lg:mx-0">
-          Swiftel Fibre brings you reliable, high-speed internet designed for the modern digital generation. Stream, work, and play without limits.
-        </p>
-        <div class="mt-8">
-          <a href="#packages" class="inline-block bg-accent hover:bg-accent-dark text-neutral-900 font-bold py-3 px-8 rounded-lg text-lg transition-colors">
-            Explore Packages
-          </a>
+<Layout title={pageTitle} description={pageDescription}>
+  
+  <section class="grid-background py-16 lg:py-20 flex justify-center">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+        <div class="text-center lg:text-left">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-DEFAULT leading-tight">
+            Experience Uninterrupted<br />
+            <span class="text-primary">Fibre Speed.</span>
+          </h1>
+          <p class="mt-6 text-lg text-muted max-w-lg mx-auto lg:mx-0">
+            Swiftel Fibre brings you reliable, high-speed internet designed for the modern digital generation. Stream, work, and play without limits.
+          </p>
+          <div class="mt-8">
+            <a href="#packages" class="inline-block bg-accent hover:bg-accent-dark text-neutral-900 font-bold py-3 px-8 rounded-lg text-lg transition-colors">
+              Explore Packages
+            </a>
+          </div>
+        </div>
+        <div class="hidden lg:flex justify-center items-center">
+          <svg width="400" height="400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="wifi-svg text-primary">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="currentColor" />
+                <stop offset="100%" stop-color="rgb(var(--color-accent))" />
+              </linearGradient>
+            </defs>
+            <g class="signal-animation">
+              <circle cx="100" cy="100" r="40" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.8" />
+              <circle cx="100" cy="100" r="70" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.5" />
+              <circle cx="100" cy="100" r="100" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.2" />
+              <circle cx="100" cy="100" r="10" fill="url(#grad1)" />
+            </g>
+          </svg>
         </div>
       </div>
-
-      <div class="hidden lg:flex justify-center items-center">
-        <svg width="400" height="400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="wifi-svg text-primary">
-          <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="currentColor" />
-              <stop offset="100%" stop-color="rgb(var(--color-accent))" />
-            </linearGradient>
-          </defs>
-          <g class="signal-animation">
-            <circle cx="100" cy="100" r="40" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.8" />
-            <circle cx="100" cy="100" r="70" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.5" />
-            <circle cx="100" cy="100" r="100" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.2" />
-            <circle cx="100" cy="100" r="10" fill="url(#grad1)" />
-          </g>
-        </svg>
-      </div>
-
     </div>
   </section>
+
+  <WhySwiftel />
 
   <section id="packages">
     <PackagesSection client:load {homePackages} {businessPackages} />

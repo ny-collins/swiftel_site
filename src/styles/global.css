@@ -1,7 +1,3 @@
-/*
-  1. DEFINE OUR COLOR PALETTE AS CSS VARIABLES.
-  We define light mode colors by default in :root.
-*/
 :root {
   --color-bg: 244 244 245; /* neutral-100 */
   --color-bg-card: 255 255 255; /* white */
@@ -16,31 +12,24 @@
   --color-secondary-accent: 231 199 20; /* #e7c714 */
 }
 
-/*
-  2. DEFINE THE 'dark' THEME. 
-  When the <html> tag has class="dark", these variables override :root.
-*/
 html.dark {
-  --color-bg: 24 24 27; /* neutral-950 (This is our new dark background) */
+  --color-bg: 24 24 27; /* neutral-950 */
   --color-bg-card: 39 39 42; /* neutral-800 */
   --color-text: 245 245 245; /* neutral-100 */
   --color-text-muted: 161 161 170; /* neutral-400 */
   --color-border: 63 63 70; /* neutral-700 */
 }
 
-/* 3. IMPORT TAILWIND (MUST come AFTER variable definitions) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* 4. ALL CUSTOM CSS, NOW USING OUR VARIABLES */
 
 /* Hero grid background */
 .grid-background {
   background-color: rgb(var(--color-bg));
   background-image:
-    repeating-linear-gradient(to right, rgba(var(--color-border), 0.4) 0, rgba(var(--color-border), 0.4) 1px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(to bottom, rgba(var(--color-border), 0.4) 0, rgba(var(--color-border), 0.4) 1px, transparent 1px, transparent 40px);
+    repeating-linear-gradient(to right, rgba(var(--color-border), 0.3) 0, rgba(var(--color-border), 0.3) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(to bottom, rgba(var(--color-border), 0.3) 0, rgba(var(--color-border), 0.3) 1px, transparent 1px, transparent 40px);
   background-size: 40px 40px;
 }
 
@@ -144,7 +133,8 @@ html.dark {
 .form-input {
   display: block;
   width: 100%;
-  background-color: rgba(var(--color-bg-card), 0.5);
+  /* UPDATED: Changed from --color-bg to --color-bg-card */
+  background-color: rgb(var(--color-bg-card));
   border: 1px solid rgb(var(--color-border));
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
@@ -218,41 +208,36 @@ html.dark {
   text-shadow: 2px 0 rgb(var(--color-secondary-accent));
   animation: glitch-tear-2 3s infinite linear alternate-reverse;
 }
-
 @keyframes glitch-shake {
-  0%   { transform: translate(0); }
-  25%  { transform: translate(1px, 1px); }
-  50%  { transform: translate(-1px, -1px); }
-  75%  { transform: translate(1px, -1px); }
-  100% { transform: translate(0); }
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(1px, 1px); }
+  50% { transform: translate(-1px, -1px); }
+  75% { transform: translate(1px, -1px); }
+  100% { transform: translate(0, 0); }
 }
-
-/* Keyframe for the first ghost layer's "tearing" */
 @keyframes glitch-tear-1 {
-  0%   { clip-path: inset(10% 0 85% 0); }
-  10%  { clip-path: inset(40% 0 10% 0); }
-  20%  { clip-path: inset(90% 0 2% 0); }
-  30%  { clip-path: inset(25% 0 60% 0); }
-  40%  { clip-path: inset(5% 0 70% 0); }
-  50%  { clip-path: inset(80% 0 15% 0); }
-  60%  { clip-path: inset(10% 0 50% 0); }
-  70%  { clip-path: inset(60% 0 30% 0); }
-  80%  { clip-path: inset(95% 0 1% 0); }
-  90%  { clip-path: inset(30% 0 65% 0); }
+  0% { clip-path: inset(10% 0 85% 0); }
+  10% { clip-path: inset(40% 0 10% 0); }
+  20% { clip-path: inset(90% 0 2% 0); }
+  30% { clip-path: inset(25% 0 60% 0); }
+  40% { clip-path: inset(5% 0 70% 0); }
+  50% { clip-path: inset(80% 0 15% 0); }
+  60% { clip-path: inset(10% 0 50% 0); }
+  70% { clip-path: inset(60% 0 30% 0); }
+  80% { clip-path: inset(95% 0 1% 0); }
+  90% { clip-path: inset(30% 0 65% 0); }
   100% { clip-path: inset(10% 0 85% 0); }
 }
-
-/* Keyframe for the second ghost layer's "tearing" (different steps) */
 @keyframes glitch-tear-2 {
-  0%   { clip-path: inset(70% 0 20% 0); }
-  10%  { clip-path: inset(10% 0 80% 0); }
-  20%  { clip-path: inset(40% 0 30% 0); }
-  30%  { clip-path: inset(60% 0 10% 0); }
-  40%  { clip-path: inset(80% 0 5% 0); }
-  50%  { clip-path: inset(20% 0 70% 0); }
-  60%  { clip-path: inset(50% 0 30% 0); }
-  70%  { clip-path: inset(1% 0 90% 0); }
-  80%  { clip-path: inset(25% 0 50% 0); }
-  90%  { clip-path: inset(75% 0 10% 0); }
+  0% { clip-path: inset(70% 0 20% 0); }
+  10% { clip-path: inset(10% 0 80% 0); }
+  20% { clip-path: inset(40% 0 30% 0); }
+  30% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(80% 0 5% 0); }
+  50% { clip-path: inset(20% 0 70% 0); }
+  60% { clip-path: inset(50% 0 30% 0); }
+  70% { clip-path: inset(1% 0 90% 0); }
+  80% { clip-path: inset(25% 0 50% 0); }
+  90% { clip-path: inset(75% 0 10% 0); }
   100% { clip-path: inset(70% 0 20% 0); }
 }
