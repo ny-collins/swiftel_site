@@ -1,20 +1,11 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-const frontmatter = Astro.props?.frontmatter ?? {};
-const title = (frontmatter.title || '').split(' | ')[0];
+import Layout from './Layout.astro';
+const { frontmatter } = Astro.props;
 ---
-
-<BaseLayout title={frontmatter.title}>
+<Layout title={frontmatter.title}>
   <article class="py-16 lg:py-24">
-    <div class="container mx-auto px-6">
-      <div class="max-w-3xl mx-auto mb-4">
-        <a href="/learn" class="text-primary hover:underline font-medium">Learn</a>
-        <span class="text-muted"> / {title}</span>
-      </div>
-      
-      <div class="prose">
-        <slot />
-      </div>
+    <div class="prose container mx-auto px-6">
+      <slot />
     </div>
   </article>
-</BaseLayout>
+</Layout>

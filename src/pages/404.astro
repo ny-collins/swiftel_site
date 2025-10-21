@@ -1,29 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../layouts/Layout.astro';
 ---
-<BaseLayout title="404 Not Found | Swiftel Fibre">
+<Layout title="404 Not Found | Swiftel Fibre">
   <section class="h-full flex flex-col justify-center items-center text-center py-12 px-6">
     <div class="max-w-md mx-auto">
       
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200" class="w-40 h-40 text-accent mx-auto mb-6">
-        <g stroke-linecap="round" stroke-width="14" stroke="currentColor">
-          <path d="M40.3 84.4C55.2 69.5 76.5 60 100 60s44.8 9.5 59.7 24.4" />
-          <path d="M19.5 63.6C42.8 40.3 69.9 28 100 28s57.2 12.3 80.5 35.6" />
-          <path d="M61.1 105.1C70.6 95.6 84.6 90 100 90s29.4 5.6 38.9 15.1" />
-        </g>
-        <circle cx="100" cy="126" r="14" fill="currentColor" />
-        <path stroke-linecap="round" stroke-width="16" stroke="currentColor" d="M30 170 L 170 30" />
-      </svg>
-
       <h1 class="text-8xl lg:text-9xl font-extrabold text-primary glitch-text" data-text="404">
         404
       </h1>
-      <p class="text-2xl lg:text-3xl font-bold text-DEFAULT mt-4">
+
+      <p class="text-2xl lg:text-3xl font-bold text-neutral-100 mt-4">
         Page Not Found
       </p>
-      <p class="text-lg text-muted mt-6">
+      <p class="text-lg text-neutral-300 mt-6">
         The page you're looking for doesn't exist, has been moved, or is temporarily offline.
       </p>
+
       <div class="mt-10">
         <a href="/" class="inline-block bg-accent hover:bg-accent-dark text-neutral-900 font-bold py-3 px-8 rounded-lg text-lg transition-colors">
           &larr; Go Back Home
@@ -31,4 +23,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
-</BaseLayout>
+</Layout>

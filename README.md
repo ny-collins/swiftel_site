@@ -1,46 +1,43 @@
-# Swiftel Fibre Website
+# Astro Starter Kit: Minimal
 
-This is the official marketing and informational website for Swiftel Fibre, a modern Internet Service Provider (ISP). The site is built as a high-performance, static-first website using the Astro framework with interactive Svelte "islands."
+```sh
+npm create astro@latest -- --template minimal
+```
 
-## ✨ Features
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-* **Astro Islands Architecture:** The site is static HTML by default for extreme performance, with interactive Svelte components hydrated only on the client as needed.
-* **Dual-Theme Support:** A complete light/dark mode system (with a neutral dark theme for logo contrast), with the user's preference saved to `localStorage`.
-* **Fully Responsive:** A mobile-first design that scales perfectly from small phones to large desktops.
-* **Interactive Package Showcase:**
-    * A dynamic toggle to switch between "Home" and "Business" plans.
-    * Expandable package cards to show detailed features without cluttering the UI.
-    * A horizontal-scrolling carousel on mobile with a custom "dot" pagination indicator.
-* **Interactive Navigation:** A full-screen, animated hamburger menu for mobile devices, complete with a theme toggle.
-* **Content-Driven "Learn" Hub:** A "hub-and-spoke" model for articles. The hub page (`/learn`) features article cards, and the articles themselves are written in simple Markdown (`.md`).
-* **Custom Pages:** Includes a themed "About Us" page with a custom-styled timeline and a "404 Not Found" page with a creative, brand-colored "glitch" effect.
-* **Brand-First Design:** Uses a code-based, theme-aware SVG logo system for perfect clarity and scalability across the site.
+## 🚀 Project Structure
 
-## 🚀 Tech Stack
+Inside of your Astro project, you'll see the following folders and files:
 
-* **Framework:** [Astro](https://astro.build/) (Static Site Generator)
-* **UI Components:** [Svelte](https://svelte.dev/) (for interactive islands)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/) (with a custom, CSS variable-based light/dark theme)
-* **Content:** Astro components and Markdown (`.md`) files
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-## 🧞 Available Scripts
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-All commands are run from the root of the project:
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-| Command | Description |
-| :--- | :--- |
-| `npm run dev` | Starts the local development server at `http://localhost:4321`. |
-| `npm run build` | Builds the site for production. The static files are output to a `/dist` folder. |
-| `npm run preview` | Starts a local server to preview your production build. |
+Any static assets, like images, can be placed in the `public/` directory.
 
-## 📦 Deployment
+## 🧞 Commands
 
-This project is configured for static deployment on **GitHub Pages**.
+All commands are run from the root of the project, from a terminal:
 
-The `astro.config.mjs` file is set with the correct `site` and `base` options, and a complete GitHub Actions workflow is included at `.github/workflows/deploy.yml`.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-To deploy, simply:
-1.  Push your code to the `master` branch.
-2.  In your repository settings on GitHub, set the "GitHub Pages" source to **"GitHub Actions"**.
+## 👀 Want to learn more?
 
-GitHub will automatically build and deploy the site on every new push.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

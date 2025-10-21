@@ -6,6 +6,7 @@ const journey = [
   { year: "2021", title: "First Fibre Rollout", description: "Launched our initial fibre network in Nairobi, serving our very first customers." },
   { year: "2023", title: "Expanded Coverage", description: "Significantly grew our fibre footprint across Kasarani and Njiru sub-counties." },
   { year: "2024", title: "Launched Business Solutions", description: "Introduced a suite of dedicated services for enterprises and SMEs." },
+  // THE NEW TIMELINE EVENT IS ADDED HERE
   { year: "2025", title: "Hotspot Solutions Introduced", description: "Launched flexible, pay-as-you-go internet access via dedicated local hotspots." },
 ];
 const promises = [
@@ -26,23 +27,23 @@ const leadership = [
         <img 
             src="/logos/logo-stacked.svg" 
             alt="" 
-            class="h-[2000px] w-auto text-card opacity-10" 
+            class="h-[1000px] w-auto text-neutral-800/50 opacity-10" 
             aria-hidden="true"
         >
     </div>
     
     <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-extrabold text-DEFAULT">Our Journey</h2>
-        <p class="text-lg text-muted mt-4">From a simple idea to a trusted local provider.</p>
+        <h2 class="text-4xl lg:text-5xl font-extrabold">Our Journey</h2>
+        <p class="text-lg text-neutral-300 mt-4">From a simple idea to a trusted local provider.</p>
       </div>
       <div class="timeline-container">
         {journey.map(item => (
           <div class="timeline-item">
             <div class="timeline-year">{item.year}</div>
             <div class="timeline-content">
-              <h4 class="text-xl font-bold text-DEFAULT">{item.title}</h4>
-              <p class="text-muted mt-1">{item.description}</p>
+              <h4 class="text-xl font-bold">{item.title}</h4>
+              <p class="text-neutral-300 mt-1">{item.description}</p>
             </div>
           </div>
         ))}
@@ -53,19 +54,19 @@ const leadership = [
   <section>
     <div class="container mx-auto px-6">
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-extrabold text-DEFAULT">Our Promise to You</h2>
-        <p class="text-lg text-muted mt-4">We're committed to more than just internet. We're committed to you.</p>
+        <h2 class="text-4xl lg:text-5xl font-extrabold">Our Promise to You</h2>
+        <p class="text-lg text-neutral-300 mt-4">We're committed to more than just internet. We're committed to you.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {promises.map(promise => (
-          <div class="bg-card border border-DEFAULT p-6 md:p-8 rounded-lg text-center">
+          <div class="bg-neutral-800 p-6 md:p-8 rounded-lg text-center">
             <div class="mx-auto bg-primary/20 h-16 w-16 rounded-full flex items-center justify-center mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary">
                 <Fragment set:html={promise.icon} />
               </svg>
             </div>
-            <h4 class="text-2xl font-bold text-DEFAULT">{promise.title}</h4>
-            <p class="text-muted mt-2">{promise.description}</p>
+            <h4 class="text-2xl font-bold">{promise.title}</h4>
+            <p class="text-neutral-300 mt-2">{promise.description}</p>
           </div>
         ))}
       </div>
@@ -75,8 +76,8 @@ const leadership = [
   <section class="pb-20 lg:pb-32">
     <div class="container mx-auto px-6">
         <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-DEFAULT">Meet Our Leadership</h2>
-            <p class="text-lg text-muted mt-4">Behind every great connection is a team of passionate experts.</p>
+            <h2 class="text-4xl lg:text-5xl font-extrabold">Meet Our Leadership</h2>
+            <p class="text-lg text-neutral-300 mt-4">Behind every great connection is a team of passionate experts.</p>
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {leadership.map(person => (
