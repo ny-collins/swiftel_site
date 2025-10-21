@@ -18,11 +18,11 @@
   }
 </script>
 
-<section class="py-20 lg:py-32 bg-neutral-900 overflow-hidden">
+<section class="py-20 lg:py-32 bg-bg overflow-hidden">
   <div class="container mx-auto px-6">
     <div class="text-center mb-12 max-w-2xl mx-auto">
       <h2 class="text-4xl lg:text-5xl font-extrabold">Find the Perfect Plan</h2>
-      <p class="text-lg text-neutral-300 mt-4">
+      <p class="text-lg text-muted mt-4">
         Simple, transparent pricing for every need. No hidden fees, no data caps, just pure fibre.
       </p>
     </div>

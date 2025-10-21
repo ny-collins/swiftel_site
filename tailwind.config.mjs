@@ -32,6 +32,7 @@ export default {
       backgroundColor: {
         DEFAULT: withOpacity('--color-bg'),
         card: withOpacity('--color-bg-card'),
+        border: withOpacity('--color-border'),
       },
       borderColor: {
         DEFAULT: withOpacity('--color-border'),

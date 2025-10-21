@@ -1,23 +1,25 @@
 :root {
-  --color-bg: 244 244 245; /* neutral-100 */
+  --color-bg: 248 250 252; /* slate-50 */
   --color-bg-card: 255 255 255; /* white */
-  --color-text: 27 27 27; /* neutral-900 */
-  --color-text-muted: 115 115 115; /* neutral-500 */
-  --color-border: 228 228 231; /* neutral-200 */
+  --color-text: 30 41 59; /* slate-800 */
+  --color-text-muted: 100 116 139; /* slate-500 */
+  --color-border: 226 232 240; /* slate-200 */
   
-  --color-primary: 10 116 218; /* #0A74DA */
-  --color-primary-dark: 8 93 170; /* #085DAA */
-  --color-accent: 23 201 210; /* #17C9D2 */
-  --color-accent-dark: 18 161 168; /* #12A1A8 */
-  --color-secondary-accent: 231 199 20; /* #e7c714 */
+  --color-primary: 139 92 246; /* #8B5CF6 */
+  --color-primary-dark: 124 58 237; /* #7C3AED */
+  --color-accent: 16 185 129; /* #10B981 */
+  --color-accent-dark: 5 150 105; /* #059669 */
+  --color-secondary-accent: 234 179 8; /* #EAB308 */
+  --color-hero-bg: 15 23 42; /* slate-900 */
 }
 
 html.dark {
-  --color-bg: 24 24 27; /* neutral-900 (a neutral gray) */
-  --color-bg-card: 39 39 42; /* neutral-800 */
-  --color-text: 245 245 245; /* neutral-100 */
-  --color-text-muted: 161 161 170; /* neutral-400 */
-  --color-border: 63 63 70; /* neutral-700 */
+  --color-bg: 15 23 42; /* slate-900 */
+  --color-bg-card: 30 41 59; /* slate-800 */
+  --color-text: 226 232 240; /* slate-200 */
+  --color-text-muted: 148 163 184; /* slate-400 */
+  --color-border: 51 65 85; /* slate-700 */
+  --color-hero-bg: 15 23 42; /* slate-900 */
 }
 
 @font-face {
@@ -35,10 +37,10 @@ html.dark {
 
 /* Styling for the hero section's grid background */
 .grid-background {
-  background-color: #111827; /* neutral-900 */
+  background-color: rgb(var(--color-hero-bg)); /* neutral-900 */
   background-image:
-    repeating-linear-gradient(to right, rgba(55, 65, 81, 0.4) 0, rgba(55, 65, 81, 0.4) 1px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(to bottom, rgba(55, 65, 81, 0.4) 0, rgba(55, 65, 81, 0.4) 1px, transparent 1px, transparent 40px);
+    repeating-linear-gradient(to right, rgba(var(--color-border), 0.4) 0, rgba(var(--color-border), 0.4) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(to bottom, rgba(var(--color-border), 0.4) 0, rgba(var(--color-border), 0.4) 1px, transparent 1px, transparent 40px);
   background-size: 40px 40px;
 }
 
@@ -54,8 +56,8 @@ html.dark {
 
 /* Scroll Indicator */
 .indicator-container { display: flex; justify-content: center; align-items: center; gap: 0.75rem; }
-.indicator-dot { width: 0.75rem; height: 0.75rem; border-radius: 9999px; background-color: #374151; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: none; cursor: pointer; }
-.indicator-dot.active { width: 2rem; background-color: #17C9D2; }
+.indicator-dot { width: 0.75rem; height: 0.75rem; border-radius: 9999px; background-color: rgb(var(--color-border)); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: none; cursor: pointer; }
+.indicator-dot.active { width: 2rem; background-color: rgb(var(--color-accent)); }
 
 /* Package Toggle */
 .package-toggle-container {
@@ -72,17 +74,17 @@ html.dark {
   padding: 0.75rem 1.5rem; /* 12px 24px */
   border-radius: 9999px; /* Fully rounded */
   font-weight: 600;
-  color: #E5E7EB; /* neutral-200 */
-  background-color: rgba(55, 65, 81, 0.3); /* semi-transparent neutral-700 */
-  border: 1px solid #374151; /* neutral-700 */
+  color: rgb(var(--color-text-muted));
+  background-color: rgba(var(--color-border), 0.3);
+  border: 1px solid rgb(var(--color-border));
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
 /* Style for the active button */
 .toggle-button.active {
-  background-color: #F9FAFB; /* neutral-100 (White) */
-  color: #111827; /* neutral-900 (Black) */
+  background-color: rgb(var(--color-bg-card));
+  color: rgb(var(--color-text));
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
@@ -116,7 +118,7 @@ html.dark {
   content: '';
   position: absolute;
   width: 3px;
-  background-color: #374151; /* neutral-700 */
+  background-color: rgb(var(--color-border)); /* neutral-700 */
   top: 8px;
   bottom: 8px;
   left: 50%;
@@ -135,8 +137,8 @@ html.dark {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #111827; /* neutral-900 */
-  border: 4px solid #0A74DA; /* primary */
+  background-color: rgb(var(--color-bg)); /* neutral-900 */
+  border: 4px solid rgb(var(--color-primary)); /* primary */
   top: 24px;
   border-radius: 50%;
   z-index: 1;
@@ -162,7 +164,7 @@ html.dark {
 .timeline-year {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #17C9D2; /* accent */
+  color: rgb(var(--color-accent)); /* accent */
   margin-bottom: 0.5rem;
 }
 
@@ -193,22 +195,22 @@ html.dark {
 .form-input {
   display: block;
   width: 100%;
-  background-color: #1F2937; /* neutral-800 */
-  border: 1px solid #374151; /* neutral-700 */
+  background-color: rgb(var(--color-bg-card)); /* neutral-800 */
+  border: 1px solid rgb(var(--color-border)); /* neutral-700 */
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
-  color: #F9FAFB; /* neutral-100 */
+  color: rgb(var(--color-text)); /* neutral-100 */
   transition: all 0.2s;
 }
 .form-input:focus {
   outline: none;
-  border-color: #0A74DA; /* primary */
-  box-shadow: 0 0 0 2px rgba(10, 116, 218, 0.5);
+  border-color: rgb(var(--color-primary)); /* primary */
+  box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.5);
 }
 
 .submit-button {
   width: 100%;
-  background-color: #0A74DA; /* primary */
+  background-color: rgb(var(--color-primary)); /* primary */
   color: white;
   font-weight: 600;
   padding: 0.75rem 1rem;
@@ -216,21 +218,21 @@ html.dark {
   transition: background-color 0.2s;
 }
 .submit-button:hover {
-  background-color: #085DAA; /* primary-dark */
+  background-color: rgb(var(--color-primary-dark)); /* primary-dark */
 }
 .submit-button:disabled {
-  background-color: #374151; /* neutral-700 */
+  background-color: rgb(var(--color-border)); /* neutral-700 */
   cursor: not-allowed;
 }
 
 .success-message {
   width: 100%;
-  background-color: rgba(23, 201, 210, 0.2); /* accent-transparent */
-  color: #17C9D2; /* accent */
+  background-color: rgba(var(--color-accent), 0.2); /* accent-transparent */
+  color: rgb(var(--color-accent)); /* accent */
   text-align: center;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #17C9D2;
+  border: 1px solid rgb(var(--color-accent));
 }
 
 /* --- STYLES FOR THE ARTICLE CARD --- */
@@ -301,7 +303,7 @@ html.dark {
 /* 2. The first "ghost" layer (Accent Color) */
 .glitch-text::before {
   left: 3px;
-  text-shadow: -2px 0 #17C9D2; /* Accent color */
+  text-shadow: -2px 0 rgb(var(--color-accent)); /* Accent color */
   /* This layer has its own rapid "tearing" animation */
   animation: glitch-tear-1 2s infinite linear alternate-reverse;
 }
@@ -309,7 +311,7 @@ html.dark {
 /* 3. The second "ghost" layer (Yellow Color) */
 .glitch-text::after {
   left: -3px;
-  text-shadow: 2px 0 #e7c714; /* Yellow accent */
+  text-shadow: 2px 0 rgb(var(--color-secondary-accent)); /* Yellow accent */
   /* This layer has a DIFFERENT "tearing" animation */
   animation: glitch-tear-2 3s infinite linear alternate-reverse;
 }
