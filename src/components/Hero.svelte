@@ -10,6 +10,8 @@
 
     onMount(() => {
         typeText();
+        // Start counters when component mounts
+        animateCounters();
     });
 
     function typeText() {
@@ -37,6 +39,40 @@
         }
 
         setTimeout(typeText, typingSpeed);
+    }
+
+    // Counter animation (moved here to keep a single top-level <script>)
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target') || '0');
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = Math.floor(current).toString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toString();
+                }
+            };
+
+            // Use Intersection Observer to start animation when visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(counter);
+        });
     }
 </script>
 
@@ -128,47 +164,7 @@
     </div>
 </section>
 
-<script>
-    // Counter animation
-    function animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target') || '0');
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    counter.textContent = Math.floor(current).toString();
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target.toString();
-                }
-            };
-
-            // Use Intersection Observer to start animation when visible
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        updateCounter();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            observer.observe(counter);
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', animateCounters);
-    } else {
-        animateCounters();
-    }
-</script>
+<!-- counter logic moved into the top-level <script lang="ts"> to satisfy Svelte's single top-level script rule -->
 
 <style>
     .stat-card {
