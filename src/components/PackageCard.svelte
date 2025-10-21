@@ -15,10 +15,10 @@
   }
 </script>
 
-<div class={`
+<<div class={`
   relative flex flex-col text-center p-6 md:p-6 lg:p-8 rounded-2xl border-2 transition-all duration-300 h-full
   ${isFeatured 
-    ? 'bg-card-800 border-primary shadow-2xl shadow-primary/20 transform lg:scale-105' 
+    ? 'bg-card border-primary shadow-2xl shadow-primary/20 transform lg:scale-105' 
     : 'bg-card/50 border-DEFAULT'}
 `}>
   
@@ -28,43 +28,34 @@
     </div>
   {/if}
 
-  <h3 class="text-2xl lg:text-3xl font-bold">{name}</h3>
+  <h3 class="text-2xl lg:text-3xl font-bold text-DEFAULT">{name}</h3>
   
   <div class="my-4 lg:my-6">
     <span class="text-5xl lg:text-6xl font-extrabold text-accent leading-none">{speed}</span>
-    <span class="text-lg lg:text-xl font-medium text-neutral-300"> Mbps</span>
+    <span class="text-lg lg:text-xl font-medium text-muted"> Mbps</span>
   </div>
   
-  <p class="text-lg lg:text-xl text-neutral-100">
-    Ksh. {price}<span class="text-neutral-400 text-base">/month</span>
+  <p class="text-lg lg:text-xl text-DEFAULT">
+    Ksh. {price}<span class="text-muted text-base">/month</span>
   </p>
 
-  <p class="text-neutral-400 mt-4 flex-grow text-sm md:text-base min-h-[5rem]">
+  <p class="text-muted mt-4 flex-grow text-sm md:text-base min-h-[5rem]">
     {description}
   </p>
   
   <button 
     on:click={toggleExpand} 
-    class="mx-auto my-4 text-neutral-500 hover:text-primary transition-colors"
+    class="mx-auto my-4 text-muted hover:text-primary transition-colors"
     aria-label={expanded ? 'Collapse details' : 'Expand details'}
   >
-    <svg 
-      class="w-6 h-6 transition-transform duration-300"
-      class:rotate-180={expanded}
-      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-    </svg>
-  </button>
+    </button>
 
   {#if expanded}
-    <div class="border-t-2 border-neutral-700 pt-6 text-left" transition:slide={{ duration: 300 }}>
+    <div class="border-t-2 border-DEFAULT pt-6 text-left" transition:slide={{ duration: 300 }}>
       <ul class="space-y-3">
         {#each features as feature}
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-neutral-300 text-sm">{feature}</span>
+            <span class="text-muted text-sm">{feature}</span>
           </li>
         {/each}
       </ul>
@@ -76,7 +67,7 @@
       block w-full text-center font-bold py-3 px-6 rounded-lg transition-colors
       ${isFeatured 
         ? 'bg-primary hover:bg-primary-dark text-white' 
-        : 'bg-neutral-700 hover:bg-primary text-neutral-100'}
+        : 'bg-border hover:bg-primary text-DEFAULT hover:text-white'}
     `}>
       Order Now
     </a>

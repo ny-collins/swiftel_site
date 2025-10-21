@@ -3,17 +3,23 @@ import Layout from '../layouts/Layout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 
 const articles = [
-  { title: "What is Fibre Internet?", description: "A deep dive into the technology of light-speed data.", href: "/learn/what-is-fibre" },
+  { title: "What is Fibre Internet?", description: "A deep dive into the technology of light-speed data.", href: "/learn/what-is-fibre", featured: true },
   { title: "How to Boost Your Wi-Fi Signal", description: "Practical tips to get faster, more reliable wireless internet in your home.", href: "/learn/how-to-boost-wifi" },
   { title: "Mbps vs. Gbps: Understanding Speed", description: "What do these numbers mean, and how much speed do you really need?", href: "/learn/understanding-speed" },
   { title: "What is a Hotspot?", description: "Learn about pay-as-you-go internet and how it offers flexible connectivity.", href: "/learn/what-is-a-hotspot" },
 ];
+
+const featured = articles.find(a => a.featured);
+const otherArticles = articles.filter(a => !a.featured);
 ---
-<Layout title="Learn | Swiftel Fibre">
+<Layout 
+  title="Learn | Swiftel Fibre"
+  description="Learn all about internet connectivity. From in-depth guides on fibre technology to practical tips on how to boost your Wi-Fi signal."
+>
   <section class="grid-background py-16 lg:py-24">
     <div class="container mx-auto px-6 text-center">
       <h1 class="text-4xl lg:text-5xl font-extrabold">Learning Center</h1>
-      <p class="text-lg text-neutral-300 mt-4 max-w-2xl mx-auto">
+      <p class="text-lg text-muted mt-4 max-w-2xl mx-auto">
         Everything you need to know about internet connectivity, from basic tips to deep-dive explanations.
       </p>
     </div>
@@ -21,8 +27,24 @@ const articles = [
 
   <section class="py-20 lg:py-24">
     <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8">Featured Article</h2>
+      <a href={featured.href} class="article-card-link group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-card border border-DEFAULT rounded-2xl p-8 md:p-12 transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/10">
+          <div>
+            <h3 class="text-3xl lg:text-4xl font-bold text-DEFAULT">{featured.title}</h3>
+            <p class="text-muted text-lg mt-4 mb-6">{featured.description}</p>
+            <div class="font-bold text-accent text-lg group-hover:underline">
+              Read More &rarr;
+            </div>
+          </div>
+          <div class="hidden md:block bg-neutral-800 h-64 rounded-lg">
+            </div>
+        </div>
+      </a>
+      
+      <h2 class="text-3xl font-bold mt-20 mb-8">All Articles</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {articles.map(article => (
+        {otherArticles.map(article => (
           <ArticleCard 
             title={article.title}
             description={article.description}

@@ -20,41 +20,50 @@ const businessPackages = [
 ];
 ---
 
-<Layout title="Swiftel Fibre | Home">
-  
+<<Layout 
+  title="Swiftel Fibre | High-Speed Internet"
+  description="Swiftel Fibre offers the fastest, most reliable fibre internet packages for your home and business. Empowering the internet generation."
+>
   <section class="grid-background container mx-auto px-6 py-16 lg:py-20 flex justify-center">
     <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+      
       <div class="text-center lg:text-left">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-neutral-100 leading-tight">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-DEFAULT leading-tight">
           Experience Uninterrupted<br />
           <span class="text-primary">Fibre Speed.</span>
         </h1>
-        <p class="mt-6 text-lg text-neutral-300 max-w-lg mx-auto lg:mx-0">
+        <p class="mt-6 text-lg text-muted max-w-lg mx-auto lg:mx-0">
           Swiftel Fibre brings you reliable, high-speed internet designed for the modern digital generation. Stream, work, and play without limits.
         </p>
         <div class="mt-8">
-          <a href="/packages" class="inline-block bg-accent hover:bg-accent-dark text-neutral-900 font-bold py-3 px-8 rounded-lg text-lg transition-colors">
+          <a href="#packages" class="inline-block bg-accent hover:bg-accent-dark text-neutral-900 font-bold py-3 px-8 rounded-lg text-lg transition-colors">
             Explore Packages
           </a>
         </div>
       </div>
+
       <div class="hidden lg:flex justify-center items-center">
-        <svg width="400" height="400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="wifi-svg">
+        <svg width="400" height="400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="wifi-svg text-primary">
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color: #0A74DA;" />
-              <stop offset="100%" style="stop-color: #17C9D2;" />
+              <stop offset="0%" stop-color="currentColor" />
+              <stop offset="100%" stop-color="rgb(var(--color-accent))" />
             </linearGradient>
           </defs>
-          <path d="M40.3 84.4C55.2 69.5 76.5 60 100 60s44.8 9.5 59.7 24.4" stroke="url(#grad1)" stroke-width="14" stroke-linecap="round" />
-          <path d="M19.5 63.6C42.8 40.3 69.9 28 100 28s57.2 12.3 80.5 35.6" stroke="url(#grad1)" stroke-width="14" stroke-linecap="round" />
-          <path d="M61.1 105.1C70.6 95.6 84.6 90 100 90s29.4 5.6 38.9 15.1" stroke="url(#grad1)" stroke-width="14" stroke-linecap="round" />
-          <circle cx="100" cy="126" r="14" fill="url(#grad1)" />
+          <g class="signal-animation">
+            <circle cx="100" cy="100" r="40" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.8" />
+            <circle cx="100" cy="100" r="70" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.5" />
+            <circle cx="100" cy="100" r="100" stroke="url(#grad1)" stroke-width="4" stroke-opacity="0.2" />
+            <circle cx="100" cy="100" r="10" fill="url(#grad1)" />
+          </g>
         </svg>
       </div>
+
     </div>
   </section>
 
-  <PackagesSection client:load {homePackages} {businessPackages} />
+  <section id="packages">
+    <PackagesSection client:load {homePackages} {businessPackages} />
+  </section>
 
 </Layout>

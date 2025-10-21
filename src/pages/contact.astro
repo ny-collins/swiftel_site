@@ -9,22 +9,25 @@ const socialLinks = [
   { name: "WhatsApp", href: "https://wa.me/254111250055" }
 ];
 ---
-<Layout title="Contact Us | Swiftel Fibre">
-  <section class="py-8 lg:py-12">
+<Layout 
+  title="Contact Us | Swiftel Fibre"
+  description="Get in touch with Swiftel Fibre. Call us, send us an email, or fill out the contact form. We're here to help you get connected."
+>
+  <section class="py-10 lg:py-16">
     <div class="container mx-auto px-6">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
           <h1 class="text-4xl lg:text-5xl font-extrabold">Get in Touch</h1>
-          <p class="text-lg text-neutral-300 mt-4">
+          <p class="text-lg text-muted mt-4">
             Have questions or ready to get connected? We're here to help.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-neutral-800/50 p-6 md:p-8 rounded-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-card/50 border border-DEFAULT p-6 md:p-8 rounded-2xl">
           <div class="space-y-8">
             <div>
               <h3 class="text-2xl font-bold text-primary">Contact Details</h3>
-              <p class="text-neutral-300 mt-2">
+              <p class="text-muted mt-2">
                 Reach out to us through any of the following channels.
               </p>
             </div>
@@ -36,18 +39,17 @@ const socialLinks = [
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.852 2H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                   </svg>
                 </div>
-                <a href={socialLinks.find(s => s.name === "WhatsApp")?.href} class="text-lg text-neutral-100 hover:text-primary transition-colors">
+                <a href={socialLinks.find(s => s.name === "WhatsApp")?.href} class="text-lg text-DEFAULT hover:text-primary transition-colors">
                   +254 111 250055
                 </a>
               </div>
-
               <div class="flex items-center gap-4">
                 <div class="bg-primary/20 p-3 rounded-full flex items-center justify-center">
                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-primary">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15A2.25 2.25 0 0 0 2.25 6.75m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                   </svg>
                 </div>
-                <a href="mailto:swiftytelk@gmail.com" class="text-lg text-neutral-100 hover:text-primary transition-colors">
+                <a href="mailto:swiftytelk@gmail.com" class="text-lg text-DEFAULT hover:text-primary transition-colors">
                   swiftytelk@gmail.com
                 </a>
               </div>
