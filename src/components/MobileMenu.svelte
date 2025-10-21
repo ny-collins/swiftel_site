@@ -7,7 +7,6 @@
     isOpen = !isOpen;
   }
 
-  // Prevent scrolling the body when the menu is open
   onMount(() => {
     const unsubscribe = () => {
       isOpen = false;
@@ -20,6 +19,7 @@
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
+  // UPDATED: Nav links are now consistent
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
@@ -36,7 +36,7 @@
       </svg>
     {:else}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
-        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
       </svg>
     {/if}
   </button>

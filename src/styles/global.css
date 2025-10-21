@@ -1,3 +1,7 @@
+/*
+  1. DEFINE OUR COLOR PALETTE AS CSS VARIABLES.
+  We define light mode colors by default in :root.
+*/
 :root {
   --color-bg: 244 244 245; /* neutral-100 */
   --color-bg-card: 255 255 255; /* white */
@@ -12,6 +16,9 @@
   --color-secondary-accent: 231 199 20; /* #e7c714 */
 }
 
+/*
+  2. DEFINE THE 'dark' THEME. 
+*/
 html.dark {
   --color-bg: 24 24 27; /* neutral-950 */
   --color-bg-card: 39 39 42; /* neutral-800 */
@@ -20,9 +27,13 @@ html.dark {
   --color-border: 63 63 70; /* neutral-700 */
 }
 
+/* 3. IMPORT TAILWIND */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 4. ALL CUSTOM CSS, NOW USING OUR VARIABLES
+*/
 
 /* Hero grid background */
 .grid-background {
