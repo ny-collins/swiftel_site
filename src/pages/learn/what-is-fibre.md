@@ -1,46 +1,47 @@
 ---
 layout: ../../layouts/ArticleLayout.astro
-title: "What is Fibre Internet? | Swiftel Fibre"
+title: "What is Fibre Internet? | Swiftel Fibre — Fast, Reliable, Symmetrical Connectivity"
 ---
 
 # What is Fibre Internet?
 
-You’ve heard the term "fibre," but what does it actually mean? In simple terms, fibre-optic internet is the fastest and most reliable type of internet connection available today. It’s a true game-changer compared to older technologies like DSL or cable.
+Fibre-optic internet is the fastest, most reliable way to connect to the web — and it’s changing how we stream, work, and communicate. Unlike older technologies like DSL or cable, fibre uses light to transmit data, delivering speeds that feel instant and uninterrupted.
 
-## How Does It Work?
+## How Does Fibre Work?
 
-Traditional internet (like cable or DSL) runs on copper wires, the same kind of wires used for a landline phone for decades. It sends electrical signals, which are slow and degrade over long distances.
+Traditional internet relies on copper wires that transmit electrical signals. These signals degrade over distance and are vulnerable to interference from nearby electronics.
 
-**Fibre internet is completely different.**
+Fibre internet is different. It uses ultra-thin strands of glass — each about the width of a human hair — to send data as pulses of light.
 
-It uses a technology called "fibre optics," which are tiny, flexible strands of glass, each about the thickness of a human hair. Instead of electricity, it transmits data as pulses of **light**.
+### Why Light Beats Electricity
 
-* **Speed of Light:** Data travels at nearly the speed of light.
-* **Less Interference:** Light signals aren't affected by electromagnetic interference like copper wires are.
-* **Less Signal Loss:** The signal remains strong over massive distances.
+- **Speed of Light:** Data travels nearly 300,000 km/s.
+- **Minimal Signal Loss:** Fibre maintains strength over long distances.
+- **No Interference:** Light signals aren’t affected by electromagnetic noise.
 
-This means you get an incredibly fast, stable, and consistent connection that isn't shared with your neighbors or affected by bad weather.
+This means you get a stable, high-speed connection even during peak hours or bad weather.
 
-## The Biggest Advantage: Symmetrical Speeds
+## The Power of Symmetrical Speeds
 
-This is the most important feature for modern internet use.
+Most older connections are **asymmetrical** — fast downloads but painfully slow uploads. Fibre is **symmetrical**, meaning you get the same speed in both directions.
 
-* **"Asymmetrical" (Old Tech):** Cable and DSL internet almost always have a very fast **download** speed but a very slow **upload** speed (e.g., 50 Mbps down, 5 Mbps up). This was fine when we only consumed content.
-* **"Symmetrical" (Fibre Tech):** Fibre gives you the same speed in *both* directions. If you have a 50 Mbps plan, you get **50 Mbps download AND 50 Mbps upload**.
+| Activity | Needs Download | Needs Upload |
+| :--- | :---: | :---: |
+| Streaming (Netflix, YouTube) | ✅ | |
+| Video Calls (Zoom, Teams) | ✅ | ✅ |
+| Online Gaming | ✅ | ✅ |
+| Uploading Files | | ✅ |
+| Live Streaming | | ✅ |
+| Smart Home Devices | | ✅ |
 
-### Why Symmetrical Speed Matters
+With symmetrical speeds, your video calls are crisp, your uploads are fast, and your smart devices stay responsive.
 
-In the age of working from home, video calls, and content creation, your upload speed is just as important as your download speed.
+## Why Fibre Is Future-Proof
 
-| Activity | Relies on Download | Relies on Upload |
-| :--- | :--- | :--- |
-| **Streaming** (Netflix, YouTube) | ✅ | |
-| **Browsing** Websites | ✅ | |
-| **Downloading** Files | ✅ | |
-| **Video Calls** (Zoom, Teams) | ✅ | ✅ |
-| **Online Gaming** | ✅ | ✅ |
-| **Uploading** Files (Google Drive, etc.) | | ✅ |
-| **Live Streaming** (TikTok, Twitch) | | ✅ |
-| **Smart Home Devices** (Security Cams) | | ✅ |
+Fibre isn’t just fast — it’s scalable. As technology evolves, fibre can handle higher speeds without needing to replace the cables. It’s the backbone of smart homes, cloud computing, and next-gen entertainment.
 
-With a slow upload speed, your video calls will be choppy, your games will lag, and sending large files will take forever. Fibre solves all of this.
+## Learn More
+
+- [Understanding Internet Speed (Mbps vs Gbps)](/learn/understanding-speed)
+- [What is a Hotspot?](/learn/what-is-a-hotspot)
+- [Explore Fibre Packages](/packages)

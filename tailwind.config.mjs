@@ -1,57 +1,32 @@
-/** @type {import('tailwindcss').Config} */
+import { defineConfig } from 'tailwindcss';
 
-function withOpacity(variableName) {
-  return ({ opacityValue }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
-    }
-    return `rgb(var(${variableName}))`;
-  };
-}
-
-export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  darkMode: 'class', 
+export default defineConfig({
+  content: [
+    './src/**/*.{astro,html,js,jsx,ts,tsx,svelte,md}',
+    './layouts/**/*.{astro,html}',
+    './pages/**/*.{astro,html,md}',
+  ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: withOpacity('--color-primary'),
-          'dark': withOpacity('--color-primary-dark'),
-        },
-        accent: {
-          DEFAULT: withOpacity('--color-accent'),
-          'dark': withOpacity('--color-accent-dark'),
-        },
-        'secondary-accent': withOpacity('--color-secondary-accent'),
-      },
-      textColor: {
-        DEFAULT: withOpacity('--color-text'),
-        muted: withOpacity('--color-text-muted'),
-      },
-      backgroundColor: {
-        DEFAULT: withOpacity('--color-bg'),
-        card: withOpacity('--color-bg-card'),
-        border: withOpacity('--color-border'),
-      },
-      borderColor: {
-        DEFAULT: withOpacity('--color-border'),
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
-      keyframes: {
-        wiggle: {
-          '0%, 100%': { transform: 'rotate(0deg)' },
-          '25%': { transform: 'rotate(6deg)' },
-          '50%': { transform: 'rotate(-6deg)' },
-          '75%': { transform: 'rotate(4deg)' },
-        }
-      },
-      animation: {
-        wiggle: 'wiggle 0.4s ease-in-out',
+        card: 'rgb(var(--color-bg-card) / <alpha-value>)',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        primaryDark: 'rgb(var(--color-primary-dark) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        accentDark: 'rgb(var(--color-accent-dark) / <alpha-value>)',
+        muted: 'rgb(var(--color-text-muted) / <alpha-value>)',
+        border: 'rgb(var(--color-border) / <alpha-value>)',
+        text: 'rgb(var(--color-text) / <alpha-value>)',
+        hero: 'rgb(var(--color-hero-bg) / <alpha-value>)',
       }
-    },
+    }
   },
-  plugins: [],
-}
+  safelist: [
+    'bg-card', 'bg-card/50', 'border-primary', 'bg-accent', 'bg-accent-dark', 'text-accent',
+    'text-muted', 'text-primary', 'text-neutral-100', 'text-neutral-300', 'text-neutral-500',
+    'bg-primary', 'bg-primary-dark', 'text-white',
+    'animate-wiggle', 'hover:scale-125', 'active:animate-wiggle', 'transition-transform',
+    'dark:bg-card', 'dark:text-muted', 'dark:border-border'
+  ],
+  darkMode: 'class',
+});

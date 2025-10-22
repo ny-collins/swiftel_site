@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PackagesSection from '../components/PackagesSection.svelte';
 import AboutSection from '../components/AboutSection.astro';
+import FeatureHighlight from '../components/FeatureHighlight.astro';
 
 const homePackages = [
   { name: "Home Basic", speed: "8", price: "1,500", description: "Perfect for light use, keeping you connected for all the essentials.", features: ["Ideal for 1-2 devices", "Smooth casual browsing and social media", "Reliable for email and online articles", "Standard Definition (SD) video streaming"] },
@@ -17,6 +18,24 @@ const businessPackages = [
   { name: "Business Standard", speed: "33", price: "9,750", description: "Enhanced performance for growing businesses and HD video conferencing.", features: ["Supports multiple high-demand users", "Great for VoIP phone systems and large file transfers", "Static IP address included", "24/7 priority business support"], isFeatured: true },
   { name: "Business Pro", speed: "43", price: "13,000", description: "High-capacity internet for data-intensive workflows and client servers.", features: ["Blazing-fast symmetrical speeds", "Perfect for hosting services and frequent cloud access", "Static IP address included", "Dedicated account manager"] },
   { name: "Business Enterprise", speed: "63", price: "19,000", description: "Ultimate fibre power for large offices and mission-critical operations.", features: ["Uncompromised performance for 20+ users", "Handles heavy server traffic and enterprise applications", "Static IP address included", "Custom SLA and dedicated account manager"] },
+];
+
+const highlights = [
+  {
+    title: "Symmetrical Speeds",
+    description: "Enjoy equal upload and download speeds for smooth video calls, gaming, and cloud work.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z" />`
+  },
+  {
+    title: "Hotspot Flexibility",
+    description: "Pay-as-you-go internet access via Swiftel Hotspots — perfect for students and visitors.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3" />`
+  },
+  {
+    title: "Local Support",
+    description: "Our friendly team in Nairobi is ready to help — no call centers, just real people.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2 6.75c0 8.284 6.716 15 15 15" />`
+  }
 ];
 ---
 
@@ -51,6 +70,20 @@ const businessPackages = [
           <path d="M61.1 105.1C70.6 95.6 84.6 90 100 90s29.4 5.6 38.9 15.1" stroke="url(#grad1)" stroke-width="14" stroke-linecap="round" />
           <circle cx="100" cy="126" r="14" fill="url(#grad1)" />
         </svg>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-16 lg:py-24 bg-[rgb(var(--color-bg))]">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-extrabold">Why Choose Swiftel?</h2>
+        <p class="text-lg text-muted mt-4 max-w-2xl mx-auto">We’re not just fast — we’re built for your lifestyle.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {highlights.map(h => (
+          <FeatureHighlight title={h.title} description={h.description} icon={h.icon} />
+        ))}
       </div>
     </div>
   </section>

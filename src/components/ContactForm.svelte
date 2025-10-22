@@ -8,14 +8,10 @@
     status = 'submitting';
     console.log("Form submitted with:", { name, email, message });
 
-    // In a real project, you would send the data to a server here.
-    // For now, we'll simulate a network request.
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    // Simulate a successful submission
     status = 'success';
-    
-    // Reset the form after a delay
+
     setTimeout(() => {
       name = '';
       email = '';
@@ -27,11 +23,11 @@
 
 <form on:submit|preventDefault={handleSubmit} class="space-y-6">
   <div>
-    <label for="name" class="block text-sm font-medium text-neutral-300 mb-1">Full Name</label>
-    <input 
+    <label for="name" class="block text-sm font-medium text-muted mb-1">Full Name</label>
+    <input
       bind:value={name}
-      type="text" 
-      id="name" 
+      type="text"
+      id="name"
       required
       class="form-input"
       placeholder="Your Name"
@@ -39,11 +35,11 @@
   </div>
 
   <div>
-    <label for="email" class="block text-sm font-medium text-neutral-300 mb-1">Email Address</label>
-    <input 
+    <label for="email" class="block text-sm font-medium text-muted mb-1">Email Address</label>
+    <input
       bind:value={email}
-      type="email" 
-      id="email" 
+      type="email"
+      id="email"
       required
       class="form-input"
       placeholder="you@example.com"
@@ -51,11 +47,11 @@
   </div>
 
   <div>
-    <label for="message" class="block text-sm font-medium text-neutral-300 mb-1">Message</label>
-    <textarea 
+    <label for="message" class="block text-sm font-medium text-muted mb-1">Message</label>
+    <textarea
       bind:value={message}
-      id="message" 
-      rows="4" 
+      id="message"
+      rows="4"
       required
       class="form-input"
       placeholder="How can we help?"
@@ -64,8 +60,8 @@
 
   <div>
     {#if status === 'idle' || status === 'submitting'}
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         class="submit-button"
         disabled={status === 'submitting'}
       >

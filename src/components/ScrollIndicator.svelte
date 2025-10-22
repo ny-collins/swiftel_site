@@ -1,5 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
+  import { tick } from 'svelte';
 
   export let totalItems = 0;
   export let containerId = '';
@@ -8,18 +9,23 @@
   let activeIndex = 0;
   let items = [];
   let container;
+  let observer;
 
-  onMount(() => {
+  async function initObserver() {
+    await tick();
+    cleanupObserver();
+
     container = document.getElementById(containerId);
     if (!container) return;
 
     items = Array.from(container.querySelectorAll(itemSelector));
+    if (!items.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
+    observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = items.indexOf(entry.target);
-          activeIndex = index;
+          if (index >= 0) activeIndex = index;
         }
       });
     }, {
@@ -28,6 +34,21 @@
     });
 
     items.forEach(item => observer.observe(item));
+  }
+
+  function cleanupObserver() {
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+  }
+
+  onMount(() => {
+    initObserver();
+  });
+
+  onDestroy(() => {
+    cleanupObserver();
   });
 
   function scrollToIndex(index) {
@@ -39,11 +60,14 @@
       });
     }
   }
+
+  export { initObserver, scrollToIndex };
 </script>
 
 <div class="indicator-container">
   {#each Array(totalItems) as _, i}
     <button
+      type="button"
       on:click={() => scrollToIndex(i)}
       class="indicator-dot"
       class:active={activeIndex === i}

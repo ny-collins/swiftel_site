@@ -21,17 +21,13 @@ const leadership = [
     { name: "Francis Njoroge", title: "ICT Consultant" },
 ];
 ---
+
 <div class="space-y-28 lg:space-y-40">
   <section class="pt-20 lg:pt-32 relative overflow-hidden">
     <div class="absolute inset-0 flex items-center justify-center -z-10">
-        <img 
-            src="/logos/logo-stacked.svg" 
-            alt="" 
-            class="h-[1000px] w-auto text-muted/50 opacity-10" 
-            aria-hidden="true"
-        >
+      <img src="/logos/logo-stacked.svg" alt="" class="h-[1000px] w-auto opacity-10" aria-hidden="true" />
     </div>
-    
+
     <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-3xl mx-auto text-center mb-16">
         <h2 class="text-4xl lg:text-5xl font-extrabold">Our Journey</h2>
@@ -59,13 +55,13 @@ const leadership = [
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {promises.map(promise => (
-          <div class="bg-card p-6 md:p-8 rounded-lg text-center">
+          <div class="bg-card p-6 md:p-8 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
             <div class="mx-auto bg-primary/20 h-16 w-16 rounded-full flex items-center justify-center mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary">
                 <Fragment set:html={promise.icon} />
               </svg>
             </div>
-            <h4 class="text-2xl font-bold">{promise.title}</h4>
+            <h4 class="text-xl font-bold">{promise.title}</h4>
             <p class="text-muted mt-2">{promise.description}</p>
           </div>
         ))}
@@ -75,15 +71,15 @@ const leadership = [
 
   <section class="pb-20 lg:pb-32">
     <div class="container mx-auto px-6">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-extrabold">Meet Our Leadership</h2>
-            <p class="text-lg text-muted mt-4">Behind every great connection is a team of passionate experts.</p>
-        </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {leadership.map(person => (
-                <TeamCard name={person.name} title={person.title} />
-            ))}
-        </div>
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-extrabold">Meet Our Leadership</h2>
+        <p class="text-lg text-muted mt-4">Behind every great connection is a team of passionate experts.</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {leadership.map(person => (
+          <TeamCard name={person.name} title={person.title} />
+        ))}
+      </div>
     </div>
   </section>
 </div>
